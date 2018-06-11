@@ -1,0 +1,24 @@
+{
+  "name": "unit-4-game",
+  "version": "1.0.0",
+  "description": "Star Wars RPG",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass assets/scss/ -o assets/css/",
+    "sass:watch": "npm run sass && node-sass assets/scss/ -wo assets/css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t-d-o-g/unit-4-game.git"
+  },
+  "author": "Travis Collins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t-d-o-g/unit-4-game/issues"
+  },
+  "homepage": "https://github.com/t-d-o-g/unit-4-game#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
+}

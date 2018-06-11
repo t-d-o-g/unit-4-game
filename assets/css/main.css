@@ -1,0 +1,100 @@
+h1 {
+  font-size: 3rem; }
+
+h2 {
+  font-size: 1.5rem; }
+
+h3 {
+  font-size: 1rem; }
+
+html, body {
+  height: 100%; }
+
+body {
+  display: grid;
+  grid-template-rows: .25fr 1.5fr 1.5fr .25fr;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr;
+  grid-template-areas: 'header' 'section1 section2 section3'  'footer';
+  background-image: url("../images/death-star-hangar.jpg");
+  background-position: center;
+  background-repeat: no-repeat; }
+
+header {
+  display: flex;
+  grid-area: header;
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  justify-content: center;
+  align-items: center;
+  background: rgba(197, 197, 197, 0.5);
+  font-family: "Times New Roman", Times, serif; }
+
+footer {
+  display: flex;
+  grid-area: footer;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  justify-content: center;
+  align-items: center;
+  color: #c5c5c5; }
+
+.section1 {
+  grid-area: section1; }
+  .section1 .opponents {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 25px 25px 0 0;
+    background-color: rgba(197, 197, 197, 0.9); }
+  .section1 .opponent-thumbnails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem 1rem 1rem 1rem;
+    border-radius: 0 0 25px 25px;
+    background-color: rgba(197, 197, 197, 0.9); }
+  .section1 .opponent-thumbnails img {
+    width: 25%;
+    padding: 1rem 0; }
+
+.section2 {
+  grid-area: section2; }
+  .section2 .player {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 25px 25px 0 0;
+    background-color: rgba(197, 197, 197, 0.9); }
+  .section2 .player-thumbnails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem 1rem 1rem 1rem;
+    border-radius: 0 0 25px 25px;
+    background-color: rgba(197, 197, 197, 0.9); }
+  .section2 .player-thumbnails img {
+    width: 25%;
+    padding: 1rem 0; }
+
+.section3 {
+  grid-area: section3; }
+  .section3 .enemies {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 25px 25px 0 0;
+    background-color: rgba(197, 197, 197, 0.9); }
+  .section3 .enemy-thumbnails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem 1rem 1rem 1rem;
+    border-radius: 0 0 25px 25px;
+    background-color: rgba(197, 197, 197, 0.9); }
+  .section3 .enemy-thumbnails img {
+    width: 25%;
+    padding: 1rem 0; }

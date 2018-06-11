@@ -1,0 +1,152 @@
+$defaultFont: "Times New Roman", Times, serif;
+$transparent-gray-5: rgba(197, 197, 197, .5);
+$transparent-gray-8: rgba(197, 197, 197, .8);
+$transparent-gray-9: rgba(197, 197, 197, .9);
+$bright-gray: rgb(197, 197, 197);
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: .25fr 1.5fr 1.5fr .25fr;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    grid-template-areas: 'header'
+                         'section1 section2 section3' 
+                         'footer';
+    background-image: url('../images/death-star-hangar.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    grid-area: header;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-content: center;
+    align-items: center;
+    background: $transparent-gray-5;
+    font-family: $defaultFont;
+}
+
+
+footer {
+    display: flex;
+    grid-area: footer;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-content: center;
+    align-items: center;
+    color: $bright-gray;
+}
+
+.section1 {
+    grid-area: section1;
+
+    // Opponent Section
+    .opponents {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 1rem 0 1rem;
+        padding: 1rem;
+        border-radius: 25px 25px 0 0;
+        background-color: $transparent-gray-9;
+    }
+
+    .opponent-thumbnails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem 1rem 1rem 1rem;
+        border-radius: 0 0 25px 25px;
+        background-color: $transparent-gray-9;
+    }
+
+    .opponent-thumbnails img {
+        width: 25%;
+        padding: 1rem 0;
+    }
+}
+
+.section2 {
+    grid-area: section2;
+
+    // Player Section
+    .player {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 1rem 0 1rem;
+        padding: 1rem;
+        border-radius: 25px 25px 0 0;
+        background-color: $transparent-gray-9;
+    }
+
+    .player-thumbnails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem 1rem 1rem 1rem;
+        border-radius: 0 0 25px 25px;
+        background-color: $transparent-gray-9;
+    }
+
+    .player-thumbnails img {
+        width: 25%;
+        padding: 1rem 0;
+    }
+}
+
+.section3 {
+    grid-area: section3;
+
+    // Enemy Section
+    .enemies {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 1rem 0 1rem;
+        padding: 1rem;
+        border-radius: 25px 25px 0 0;
+        background-color: $transparent-gray-9;
+    }
+
+    .enemy-thumbnails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem 1rem 1rem 1rem;
+        border-radius: 0 0 25px 25px;
+        background-color: $transparent-gray-9;
+    }
+
+    .enemy-thumbnails img {
+        width: 25%;
+        padding: 1rem 0;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+}
+
+@media screen and (min-width: 1000px) {
+}
+
+@media screen and (min-width: 500px) {
+}
+
+@media screen and (min-width: 300px) {
+}
