@@ -12,9 +12,9 @@ html, body {
 
 body {
   display: grid;
-  grid-template-rows: .25fr 1.5fr 1.5fr .25fr;
-  grid-template-columns: 1.5fr 1.5fr 1.5fr;
-  grid-template-areas: 'header' 'section1 section2 section3'  'footer';
+  grid-template-rows: .5fr 1fr 2fr .5fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: 'header' 'section1'  'section2 section3' 'footer';
   background-image: url("../images/death-star-hangar.jpg");
   background-position: center;
   background-repeat: no-repeat; }
@@ -70,7 +70,6 @@ footer {
     background-color: rgba(197, 197, 197, 0.9); }
   .section2 .player-thumbnails {
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin: 0rem 1rem 1rem 1rem;
     border-radius: 0 0 25px 25px;
@@ -81,7 +80,7 @@ footer {
 
 .section3 {
   grid-area: section3; }
-  .section3 .enemies {
+  .section3 .enemy {
     display: flex;
     justify-content: center;
     margin: 1rem 1rem 0 1rem;
