@@ -1,7 +1,8 @@
 $defaultFont: "Times New Roman", Times, serif;
 $transparent-gray-5: rgba(197, 197, 197, .5);
-$transparent-gray-8: rgba(197, 197, 197, .8);
 $transparent-gray-9: rgba(197, 197, 197, .9);
+$silver: rgb(192,192,192);
+$transparent-red: rgba(199, 18, 18, 0.685);
 $bright-gray: rgb(197, 197, 197);
 
 h1 {
@@ -25,8 +26,8 @@ body {
     grid-template-rows: .5fr 1fr 2fr .5fr;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: "gd-header"
-                         "player-container enemy-container"
-                         "opponent-container" 
+                         "player-container opponent-container enemy-container"
+                         "instruction-container" 
                          "gd-footer";
     background-image: url('../images/death-star-hangar.jpg');
     background-position: center;
@@ -45,7 +46,6 @@ header {
     font-family: $defaultFont;
 }
 
-
 footer {
     grid-area: gd-footer;
     display: flex;
@@ -56,57 +56,16 @@ footer {
     color: $bright-gray;
 }
 
-.stats h3 {
-    display: inline-block;
-}
-
-#attack-btn {
-    align-self: center;
-    height: 100%;
-    grid-column: 2;
-    border-radius: 15px;
-    background: red;
-
-}
-
-#opponent-container {
-    grid-area: opponent-container;
-
-    // Opponent Section
-    #opponents {
-        display: flex;
-        justify-content: center;
-        margin: 1rem 1rem 0 1rem;
-        padding: 1rem;
-        border-radius: 25px 25px 0 0;
-        background-color: $transparent-gray-9;
-    }
-
-    #opponent-thumbnails {
-        display: flex;
-        align-items: center;
-        margin: 0rem 1rem 1rem 1rem;
-        border-radius: 0 0 25px 25px;
-        background-color: $transparent-gray-9;
-    }
-
-    #opponent-thumbnails img {
-        width: 25%;
-        padding: 1rem 0;
-    }
-}
-
 #player-container {
     grid-area: player-container;
-    
-        display: flex;
-        justify-content: center;
-        margin: 1rem 1rem 0 1rem;
-        padding: 1rem;
-        border-radius: 25px;
-        background-color: $transparent-gray-9;
-        flex-direction: column;
-        align-items: center;
+    display: none;
+    justify-content: center;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: $transparent-gray-9;
+    flex-direction: column;
+    align-items: center;
 
     #player-thumbnail {
         display: flex;
@@ -116,22 +75,20 @@ footer {
     }
 
     #player-thumbnail img {
-        width: 25%;
-        padding: 1rem 0;
+        padding: 2.5rem 0;
     }
 }
 
 #enemy-container {
     grid-area: enemy-container;
-
-        display: flex;
-        justify-content: center;
-        margin: 1rem 1rem 0 1rem;
-        padding: 1rem;
-        border-radius: 25px;
-        background-color: $transparent-gray-9;
-        flex-direction: column;
-        align-items: center;
+    display: none;
+    justify-content: center;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: $transparent-gray-9;
+    flex-direction: column;
+    align-items: center;
 
     #enemy-thumbnail {
         display: flex;
@@ -141,9 +98,67 @@ footer {
     }
 
     #enemy-thumbnail img {
-        width: 25%;
-        padding: 1rem 0;
+        padding: 2.5rem 0;
     }
+}
+
+#opponent-container {
+    grid-area: opponent-container;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: $transparent-gray-9;
+
+    #opponents {
+        display: flex;
+        justify-content: center;
+    }
+
+    #opponent-thumbnails {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #opponent-thumbnails img {
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    #opponent-thumbnails h3 {
+        text-align: center
+    }
+
+    #opponent-thumbnails img:hover {
+        cursor: pointer;
+    }
+}
+
+#instruction-container {
+    align-self: center;
+    text-align: center;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem;
+}
+
+#attack-btn {
+    display: none;
+    align-self: center;
+    font-size: 3rem;
+    padding: 1rem;
+    margin: 1rem;
+    outline: 0;
+    border-radius: 30px;
+    background-color: $silver;
+}
+
+#attack-btn:hover {
+    cursor: pointer;
+    background-color: $transparent-red;
+}
+
+.stats h3 {
+    display: inline-block;
 }
 
 @media screen and (min-width: 1400px) {

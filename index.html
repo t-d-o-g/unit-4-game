@@ -25,28 +25,43 @@
                     <h2>You<h2>
                 </div>
                 <div id="player-thumbnail">
-                    <!-- <img src="assets/images/k2so.png" id="img-" alt=" image"> -->
                 </div>
+                <h2 id="player-name"></h2>
                 <div class="stats">
-                    <h3>Health Points:</h3>
-                    <span id="player-health">0</span>
-                    <h3>Attack Power (hidden)</h3>
-                    <h3>Counter Attack Power (hidden)</h3>
+                    <h3>Health:</h3>
+                    <span id="player-health">10</span>
                 </div>
             </div>
         </section>
 
         <section>
             <div id="opponent-container">
-                <div id="opponents">
-                    <h2>Choose Player<h2>
-                </div>
                 <div id="opponent-thumbnails">
-                    <img src="assets/images/droideka.png" id="img-droidea" alt="droidea image">
-                    <img src="assets/images/k2so.png" id="img-k2so" alt="k2so image">
-                    <img src="assets/images/ig-88.png" id="img-ig-88" alt="ig-88 image">
-                    <img src="assets/images/battle-droid.png" id="img-battle-droid" alt="battle droid image">
+                    <div id="droidea">
+                        <img src="assets/images/droideka.png" id="img-droidea" alt="droidea image">
+                        <h3>Droidea<h3>
+                    </div>
+                    <div id="k2so">
+                        <img src="assets/images/k2so.png" id="img-k2so" alt="k2so image">
+                        <h3>K2SO</h3>
+                    </div>
+                    <div id="ig-88">
+                        <img src="assets/images/ig-88.png" id="img-ig-88" alt="ig-88 image">
+                        <h3>IG-88</h3>
+                    </div>
+                    <div id="battle-droid">
+                        <img src="assets/images/battle-droid.png" id="img-battle-droid" alt="battle droid image">
+                        <h3>Battle Droid</h3>
+                    </div>
                 </div>
+                <div id="instruction-container">
+                    <div id="instruction">
+                        <h2>Choose Your Player<h2>
+                    </div>
+                <button id="attack-btn">ATTACK!</button>
+
+                </div>
+
             </div>
         </section>
 
@@ -56,17 +71,15 @@
                     <h2>Enemy<h2>
                 </div>
                 <div id="enemy-thumbnail">
-                    <!-- <img src="assets/images/battle-droid.png" id="enemy-battle-droid" alt="battle droid image"> -->
                 </div>
+                <h2 id="enemy-name"></h2>
                 <div class="stats">
-                    <h3>Health Points: </h3>
-                    <span id="enemy-health">0</span>
-                    <h3>Counter Attack Power (hidden)</h3>
+                    <span id="enemy-health">10</span>
+                    <h3>Health:</h3>
                 </div>
             </div>
         </section>
 
-        <button id="attack-btn"><h1>ATTACK!</h1></button>
 
         <footer>2018</footer>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
