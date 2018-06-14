@@ -3,6 +3,7 @@ $transparent-gray-5: rgba(197, 197, 197, .5);
 $transparent-gray-9: rgba(197, 197, 197, .9);
 $silver: rgb(192,192,192);
 $transparent-red: rgba(199, 18, 18, 0.685);
+$transparent-green: rgba(18, 199, 48, 0.685);
 $bright-gray: rgb(197, 197, 197);
 
 h1 {
@@ -104,6 +105,7 @@ footer {
 
 #opponent-container {
     grid-area: opponent-container;
+    text-align: center;
     margin: 1rem 1rem 0 1rem;
     padding: 1rem;
     border-radius: 25px;
@@ -150,6 +152,17 @@ footer {
     outline: 0;
     border-radius: 30px;
     background-color: $silver;
+}
+
+#play-btn {
+    display: none;
+    align-self: center;
+    font-size: 3rem;
+    padding: 1rem;
+    margin: 1rem;
+    outline: 0;
+    border-radius: 30px;
+    background-color: $transparent-green;
 }
 
 #attack-btn:hover {
