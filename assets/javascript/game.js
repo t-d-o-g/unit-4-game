@@ -6,25 +6,29 @@ window.onload = function () {
     var droidea = {
         name: 'Droidea',
         health: 100,
-        attack: 6,
+        attackBase: 10,
+        attack: 10,
         counterAttack: 16 
     };
     var k2so = {
         name: 'K2SO',
         health: 120,
-        attack: 6,
+        attackBase: 8,
+        attack: 8,
         counterAttack: 14 
     };
     var ig88 = {
         name: 'IG-88',
         health: 150,
+        attackBase: 6,
         attack: 6,
         counterAttack: 10 
     };
     var battleDroid = {
         name: 'Battle Droid',
         health: 180,
-        attack: 6,
+        attackBase: 4,
+        attack: 4,
         counterAttack: 8 
     };
 
@@ -114,7 +118,7 @@ window.onload = function () {
         } else if (battlesWon === 3) {
             gameWon();
         }
-        player.attack += 6;
+        player.attack += player.attackBase;
         console.log('attack power', player.attack)
     });
 
