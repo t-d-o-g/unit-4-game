@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-rows: .5fr 1fr 2fr .5fr;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "gd-header" "player-container opponent-container enemy-container" "instruction-container"  "gd-footer";
+  grid-template-areas: "gd-header" "player-container opponent-container enemy-container" "instruction-container instruction-container instruction-container"  "gd-footer";
   background-image: url("../images/death-star-hangar.jpg");
   background-position: center;
   background-repeat: no-repeat; }
@@ -113,15 +113,18 @@ footer {
   border-radius: 30px;
   background-color: silver; }
 
-#play-btn {
+#play-btn-wrapper {
   display: none;
-  align-self: center;
-  font-size: 3rem;
-  padding: 1rem;
-  margin: 1rem;
-  outline: 0;
-  border-radius: 30px;
-  background-color: rgba(18, 199, 48, 0.685); }
+  text-align: center; }
+  #play-btn-wrapper #play-btn {
+    font-size: 3rem;
+    padding: 1rem;
+    margin: 20%;
+    outline: 0;
+    border-radius: 30px;
+    background-color: rgba(18, 199, 48, 0.685); }
+  #play-btn-wrapper #play-btn:hover {
+    cursor: pointer; }
 
 #attack-btn:hover {
   cursor: pointer;

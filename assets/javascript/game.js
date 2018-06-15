@@ -1,66 +1,56 @@
 window.onload = function () {
-    var opponentsCaptured = []
     var player;
     var enemy;
     var battlesLost = 0;
     var battlesWon = 0;
     var droidea = {
         name: 'Droidea',
-        health: 3,
-        attack: 0,
-        counterAttack: .9 
+        health: 100,
+        attack: 6,
+        counterAttack: 16 
     };
     var k2so = {
         name: 'K2SO',
-        health: 3,
-        attack: 0,
-        counterAttack: .8 
+        health: 120,
+        attack: 6,
+        counterAttack: 14 
     };
     var ig88 = {
         name: 'IG-88',
-        health: 3,
-        attack: 0,
-        counterAttack: .7 
+        health: 150,
+        attack: 6,
+        counterAttack: 10 
     };
     var battleDroid = {
         name: 'Battle Droid',
-        health: 3,
-        attack: 0,
-        counterAttack: .6 
+        health: 180,
+        attack: 6,
+        counterAttack: 8 
     };
 
-    function resetGame() {
-        enemy = undefined;
-        player = undefined;
-    }
-
     function battleWon (opponent) {
-        console.log('You Win Battle');
         battlesWon++;
-        enemy = undefined;
-        opponentsCaptured.push(opponent);
         $('#battles-won').text(battlesWon);
         $('#enemy-container').hide();
         $('#attack-btn').hide();
         $('#instruction').html('<h2>Choose New Opponent</h2>');
         $('#opponent-thumbnails').show();
-    }
+        enemy = undefined;
+    };
 
     function gameWon () {
-        console.log('You Win Game');
         battlesWon++;
         $('#battles-won').text(battlesWon);
-        $('#opponent-container').html('<h1>YOU WIN!</h1><div><button id="play-btn">PLAY AGAIN</button></div>');
-        $('#play-btn').css({'display': 'inline-block'});
-    }
+        $('#opponent-container').html('<h1>YOU WIN!</h1>');
+        $('#play-btn-wrapper').show();
+    };
 
     function gameLost () {
-        console.log('You Lose Game');
         battlesLost++;
         $('#battles-lost').text(battlesLost);
-        $('#opponent-container').html('<h1>YOU LOSE!</h1><div><button id="play-btn">PLAY AGAIN</button></div>');
-        $('#play-btn').css({'display': 'inline-block'});
-    }
+        $('#opponent-container').html('<h1>YOU LOSE!</h1>');
+        $('#play-btn-wrapper').show();
+    };
 
     // Choose Player/Opponent
     $("#opponent-thumbnails").children().on('click', function (evt) {
@@ -108,43 +98,18 @@ window.onload = function () {
     });
 
     $('#attack-btn').on('click', function (evt) {
-        if (enemy === droidea) {
-            // player.health = Math.floor(player.health * enemy.counterAttack);
-            // enemy.health = Math.floor(enemy.health * player.attack);
-            player.health--;
-            // enemy.health--
-            $('#player-health').text(player.health);
-            $('#enemy-health').text(enemy.health);
-        } else if (enemy === k2so) {
-            player.health--;
-            // enemy.health--
-            // player.health = Math.floor(player.health * enemy.counterAttack);
-            // enemy.health = Math.floor(enemy.health * player.attack);
-            $('#player-health').text(player.health);
-            $('#enemy-health').text(enemy.health);
-        } else if (enemy === ig88) {
-            player.health--;
-            // enemy.health--
-            // player.health = Math.floor(player.health * enemy.counterAttack);
-            // enemy.health = Math.floor(enemy.health * player.attack);
-            $('#player-health').text(player.health);
-            $('#enemy-health').text(enemy.health);
-        } else {
-            player.health--;
-            // enemy.health--
-            // player.health = Math.floor(player.health * enemy.counterAttack);
-            // enemy.health = Math.floor(enemy.health * player.attack);
-            $('#player-health').text(player.health);
-            $('#enemy-health').text(enemy.health);
-        }
-
+        player.health -= Math.floor(enemy.counterAttack);
         console.log('player health', player.health);
-        if (enemy.health === 0) {
+        enemy.health -= Math.floor(player.attack);
+        console.log('enemy health', enemy.health);
+        $('#player-health').text(player.health);
+        $('#enemy-health').text(enemy.health);
+
+        if (enemy.health <= 0) {
             battleWon(enemy);
         }
 
-        console.log('battles lost', battlesLost);
-        if (player.health === 0) {
+        if (player.health <= 0) {
             gameLost();
         } else if (battlesWon === 3) {
             gameWon();
@@ -153,5 +118,7 @@ window.onload = function () {
         console.log('attack power', player.attack)
     });
 
-    $('#play-btn').on('click', resetGame());
+    $('#play-btn').on('click', function () {
+        window.location.reload();
+    })
 }
