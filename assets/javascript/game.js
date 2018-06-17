@@ -1,7 +1,7 @@
 window.onload = function () {
     var player;
     var enemy;
-    var battlesLost = 0;
+    var gamesLost = 0;
     var battlesWon = 0;
     var droidea = {
         name: 'Droidea',
@@ -33,10 +33,8 @@ window.onload = function () {
     };
 
     function battleWon () {
-        battlesWon++;
         $('#battles-won').text(battlesWon);
         $('#enemy-container').hide();
-        $('#attack-btn').hide();
         $('#instruction').show();
         $('#instruction').html('<h2>Choose New Opponent</h2>');
         $('#character-thumbnails').show();
@@ -44,21 +42,19 @@ window.onload = function () {
     };
 
     function gameWon () {
-        battlesWon++;
         $('#battles-won').text(battlesWon);
+        $('#instruction').show();
         $('#instruction').html('<h1>YOU WIN!</h1>');
         $('#character-thumbnails').hide();
-        $('attack-btn').hide();
         $('#play-btn-wrapper').show();
         $('#play-btn').show();
     };
 
     function gameLost () {
-        battlesLost++;
-        $('#battles-lost').text(battlesLost);
+        $('#battles-lost').text(gamesLost);
+        $('#instruction').show();
         $('#instruction').html('<h1>YOU LOSE!</h1>');
         $('#character-thumbnails').hide();
-        $('attack-btn').hide();
         $('#play-btn-wrapper').show();
         $('#play-btn').show();
     };
@@ -116,21 +112,25 @@ window.onload = function () {
         $('#enemy-health').text(enemy.health);
 
         if (player.health <= 0) {
+            $(this).hide();
+            gamesLost++;
             gameLost();
-        } else if (battlesWon === 3) {
-            gameWon();
+        } else if (enemy.health <= 0) {
+            $(this).hide();
+            battlesWon++;
+            if (battlesWon >= 3) {
+                gameWon();
+            } else {
+                battleWon();
+            }
         }
 
-        if (enemy.health <= 0) {
-            battleWon();
-        }
         player.attack += player.attackBase;
         console.log('attack power', player.attack)
     });
 
     $('#play-btn').on('click', function () {
         player.attack = player.attackBase;
-        battlesLost = 0;
         battlesWon = 0;
         droidea.health = 100; 
         k2so.health = 120;
@@ -149,6 +149,6 @@ window.onload = function () {
         $('#ig-88').show();
         $('#battle-droid').show();
         $('#battles-won').text(battlesWon);
-        $('#battles-lost').text(battlesLost);
+        $('#battles-lost').text(gammesLost);
     });
 }
