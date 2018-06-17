@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-rows: .5fr 1fr 2fr .5fr;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "gd-header" "player-container opponent-container enemy-container" "instruction-container instruction-container instruction-container"  "gd-footer";
+  grid-template-areas: "gd-header" "player-container character-container enemy-container" "instruction-container instruction-container instruction-container"  "gd-footer";
   background-image: url("../images/death-star-hangar.jpg");
   background-position: center;
   background-repeat: no-repeat; }
@@ -75,26 +75,23 @@ footer {
   #enemy-container #enemy-thumbnail img {
     padding: 2.5rem 0; }
 
-#opponent-container {
-  grid-area: opponent-container;
+#character-container {
+  grid-area: character-container;
   text-align: center;
   margin: 1rem 1rem 0 1rem;
   padding: 1rem;
   border-radius: 25px;
   background-color: rgba(197, 197, 197, 0.9); }
-  #opponent-container #opponents {
-    display: flex;
-    justify-content: center; }
-  #opponent-container #opponent-thumbnails {
+  #character-container #character-thumbnails {
     display: flex;
     align-items: center;
     justify-content: center; }
-  #opponent-container #opponent-thumbnails img {
+  #character-container #character-thumbnails h3 {
+    text-align: center; }
+  #character-container .thumbnail {
     padding: 1rem 0;
     text-align: center; }
-  #opponent-container #opponent-thumbnails h3 {
-    text-align: center; }
-  #opponent-container #opponent-thumbnails img:hover {
+  #character-container .thumbnail:hover {
     cursor: pointer; }
 
 #instruction-container {

@@ -32,32 +32,38 @@ window.onload = function () {
         counterAttack: 8 
     };
 
-    function battleWon (opponent) {
+    function battleWon () {
         battlesWon++;
         $('#battles-won').text(battlesWon);
         $('#enemy-container').hide();
         $('#attack-btn').hide();
+        $('#instruction').show();
         $('#instruction').html('<h2>Choose New Opponent</h2>');
-        $('#opponent-thumbnails').show();
+        $('#character-thumbnails').show();
         enemy = undefined;
     };
 
     function gameWon () {
         battlesWon++;
         $('#battles-won').text(battlesWon);
-        $('#opponent-container').html('<h1>YOU WIN!</h1>');
+        $('#instruction').html('<h1>YOU WIN!</h1>');
+        $('#character-thumbnails').hide();
+        $('attack-btn').hide();
         $('#play-btn-wrapper').show();
+        $('#play-btn').show();
     };
 
     function gameLost () {
         battlesLost++;
         $('#battles-lost').text(battlesLost);
-        $('#opponent-container').html('<h1>YOU LOSE!</h1>');
+        $('#instruction').html('<h1>YOU LOSE!</h1>');
+        $('#character-thumbnails').hide();
+        $('attack-btn').hide();
         $('#play-btn-wrapper').show();
+        $('#play-btn').show();
     };
 
-    // Choose Player/Opponent
-    $("#opponent-thumbnails").children().on('click', function (evt) {
+    $("#character-thumbnails").children().on('click', function (evt) {
         var $this = $(this);
         var name = $this.attr('id');
         var imgSrc = evt.target.outerHTML;
@@ -83,8 +89,8 @@ window.onload = function () {
             $('#enemy-container').css({'display': 'flex'});
             $('#enemy-thumbnail').html(imgSrc);
             $('#attack-btn').css({'display': 'inline-block'});
-            $('#instruction').html('<h2></h2>');
-            $('#opponent-thumbnails').hide();
+            $('#instruction').hide();
+            $('#character-thumbnails').hide();
             $this.hide();
             if (name === 'droidea') {
                 enemy = droidea; 
@@ -96,7 +102,7 @@ window.onload = function () {
                 enemy = battleDroid; 
             }
             $('#enemy-name').text(enemy.name);
-            $('#enemy-health').text(player.health);
+            $('#enemy-health').text(enemy.health);
             return enemy;
         }
     });
@@ -109,20 +115,40 @@ window.onload = function () {
         $('#player-health').text(player.health);
         $('#enemy-health').text(enemy.health);
 
-        if (enemy.health <= 0) {
-            battleWon(enemy);
-        }
-
         if (player.health <= 0) {
             gameLost();
         } else if (battlesWon === 3) {
             gameWon();
+        }
+
+        if (enemy.health <= 0) {
+            battleWon();
         }
         player.attack += player.attackBase;
         console.log('attack power', player.attack)
     });
 
     $('#play-btn').on('click', function () {
-        window.location.reload();
-    })
+        player.attack = player.attackBase;
+        battlesLost = 0;
+        battlesWon = 0;
+        droidea.health = 100; 
+        k2so.health = 120;
+        ig88.health = 150;
+        battleDroid.health = 180; 
+        enemy = undefined;
+        player = undefined;
+
+        $('#play-btn').hide();
+        $('#instruction').html('<h2>Choose Your Player</h2>');
+        $('#enemy-container').hide();
+        $('#player-container').hide();
+        $('#character-thumbnails').show();
+        $('#droidea').show();
+        $('#k2so').show();
+        $('#ig-88').show();
+        $('#battle-droid').show();
+        $('#battles-won').text(battlesWon);
+        $('#battles-lost').text(battlesLost);
+    });
 }
